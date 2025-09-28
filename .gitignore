@@ -1,0 +1,33 @@
+# OS generated files
+.DS_Store
+Thumbs.db
+
+# IDE configuration files
+.idea/
+.vscode/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# Flutter mobile specific
+mobile/build/
+mobile/.dart_tool/
+mobile/.flutter-plugins
+mobile/.flutter-plugins-dependencies
+mobile/.packages
+mobile/.pub-cache/
+mobile/ios/Pods/
+mobile/ios/Podfile.lock
+mobile/ios/.symlinks/
+mobile/ios/Flutter/App.framework
+mobile/ios/Flutter/engine
+mobile/ios/Flutter/flutter_assets
+mobile/ios/Flutter/.last_build_id
+
+# Laravel backend specific (dikelola oleh .gitignore di dalam backend)
+# Kita hanya perlu mengabaikan folder vendor jika dilihat dari root
+backend/vendor/
+backend/node_modules/
+backend/.env
