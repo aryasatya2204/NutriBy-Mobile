@@ -9,14 +9,8 @@ class GrowthRecord extends Model
 {
     use HasFactory;
 
-    // Nonaktifkan 'updated_at' karena tabel kita tidak memilikinya
     const UPDATED_AT = null;
 
-    /**
-     * The attributes that are mass assignable.
-     *
-     * @var array<int, string>
-     */
     protected $fillable = [
         'child_id',
         'measured_at',
@@ -24,11 +18,16 @@ class GrowthRecord extends Model
         'length_cm',
     ];
 
-    /**
-     * Relasi ke model Child (pemilik).
-     */
     public function child()
     {
         return $this->belongsTo(Child::class);
+    }
+
+    /**
+     * Mendefinisikan relasi one-to-one ke GrowthAssessment.
+     */
+    public function assessment()
+    {
+        return $this->hasOne(GrowthAssessment::class);
     }
 }

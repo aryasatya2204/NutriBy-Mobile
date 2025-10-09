@@ -37,4 +37,17 @@ class Child extends Model
     {
         return $this->hasMany(GrowthRecord::class);
     }
+
+    public function allergies()
+    {
+        return $this->hasMany(ChildAllergy::class);
+    }
+
+    /**
+     * Mendefinisikan relasi ke preferensi yang dimiliki anak.
+     */
+    public function preferences()
+    {
+        return $this->hasMany(ChildPreference::class);
+    }
 }

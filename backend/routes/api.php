@@ -3,6 +3,10 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\API\AuthController;
+use App\Http\Controllers\API\GrowthController; 
+use App\Http\Controllers\API\ProfileController;
+use App\Http\Controllers\API\AllergyController;
+use App\Http\Controllers\API\MenuController;
 
 Route::get('/test', function () {
     return response()->json([
@@ -25,9 +29,15 @@ Route::middleware('auth:sanctum')->group(function () {
     });
 
     // Rute untuk Profil Pengguna
-    Route::get('/profile', [App\Http\Controllers\API\ProfileController::class, 'show']);
-    Route::put('/profile', [App\Http\Controllers\API\ProfileController::class, 'update']);
+    Route::get('/profile', [ProfileController::class, 'show']);
+    Route::put('/profile', [ProfileController::class, 'update']);
     
     // Rute untuk Data Anak (menggunakan apiResource)
     Route::apiResource('/children', App\Http\Controllers\API\ChildController::class);
+    Route::post('/children/{child}/growth-records', [GrowthController::class, 'store']);
+    Route::get('/profile', [ProfileController::class, 'show']);
+    Route::put('/profile', [ProfileController::class, 'update']);
+    Route::put('/profile/income', [ProfileController::class, 'updateIncome']);
+    Route::get('/allergy-facts/search', [AllergyController::class, 'searchFacts']);
+    Route::get('/menus/search', [MenuController::class, 'search']);
 });
